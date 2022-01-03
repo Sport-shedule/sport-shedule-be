@@ -10,7 +10,7 @@ import java.util.Collection;
 
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/admin/category")
 public class CategoryController {
 
     @Autowired

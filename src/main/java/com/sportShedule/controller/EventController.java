@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/event")
+@RequestMapping("/admin/event")
 public class EventController {
 
     @Autowired
