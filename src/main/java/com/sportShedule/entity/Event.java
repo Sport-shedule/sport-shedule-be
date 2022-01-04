@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="EVENT")
@@ -16,7 +17,6 @@ public class Event {
     @Temporal(TemporalType.DATE)
     private Date date;
     private String name;
-    private String imageBase64;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="firstPlayer")
@@ -33,4 +33,8 @@ public class Event {
     @Column(name="categoryId")
     private Long categoryId;
 
+    @ElementCollection
+    @CollectionTable(name="images")
+    @Column(name = "imageBase64", length = 200000)
+    private List<String> images;
 }
