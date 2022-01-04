@@ -17,29 +17,36 @@ public class EventController {
 
     @PostMapping
     @ResponseBody
-    @ResponseStatus(code= HttpStatus.CREATED)
-    private Event create(@RequestBody Event event){
+    @ResponseStatus(code = HttpStatus.CREATED)
+    private Event create(@RequestBody Event event) {
         return eventService.save(event);
     }
 
     @GetMapping("/{id}")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Event findById(@PathVariable Long id){
+    private Event findById(@PathVariable Long id) {
         return eventService.findById(id);
     }
 
     @GetMapping("/byCategoryId/{id}")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Collection<Event> findByCategoryId(@PathVariable Long id){
+    private Collection<Event> findByCategoryId(@PathVariable Long id) {
         return eventService.findAllByCategoryId(id);
     }
 
     @GetMapping("/all")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Collection<Event> findAll(){
+    private Collection<Event> findAll() {
         return eventService.findAll();
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    @ResponseStatus(code = HttpStatus.OK)
+    private void removeById(@PathVariable Long id){
+        eventService.remove(id);
     }
 }

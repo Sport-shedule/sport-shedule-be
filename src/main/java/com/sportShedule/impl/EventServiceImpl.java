@@ -39,4 +39,9 @@ public class EventServiceImpl implements EventService {
     public Collection<Event> findAllByCategoryId(Long id) {
         return eventRepository.findByCategoryId(id);
     }
+
+    @Override
+    public void remove(Long id) {
+        eventRepository.deleteById(id);
+    }
 }

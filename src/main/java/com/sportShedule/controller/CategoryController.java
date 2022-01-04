@@ -37,4 +37,11 @@ public class CategoryController {
         return categoryService.findAll();
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    @ResponseStatus(code = HttpStatus.OK)
+    private void removeById(@PathVariable Long id){
+        categoryService.remove(id);
+    }
+
 }
