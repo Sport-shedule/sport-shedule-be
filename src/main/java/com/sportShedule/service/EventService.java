@@ -11,4 +11,5 @@ public interface EventService {
     Collection<Event> findAll();
     Collection<Event> findAllByCategoryId(Long id);
     void remove(Long id);
+    Collection<Event> findAllByIds(Collection<Long> ids);
 }

@@ -49,4 +49,11 @@ public class EventController {
     private void removeById(@PathVariable Long id){
         eventService.remove(id);
     }
+
+    @PostMapping("/byIds")
+    @ResponseBody
+    @ResponseStatus(code=HttpStatus.OK)
+    private Collection<Event> findByIds(@RequestBody Collection<Long> eventIds){
+        return eventService.findAllByIds(eventIds);
+    }
 }
