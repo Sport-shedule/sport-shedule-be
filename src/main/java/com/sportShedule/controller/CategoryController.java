@@ -11,6 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/admin/category")
+@CrossOrigin
 public class CategoryController {
 
     @Autowired
