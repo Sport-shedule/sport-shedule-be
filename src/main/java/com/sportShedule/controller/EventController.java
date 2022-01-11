@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/admin/event")
-//@CrossOrigin
+@CrossOrigin
 public class EventController {
 
     @Autowired
