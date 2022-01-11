@@ -21,7 +21,8 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-@CrossOrigin(origins = {"https://sportschedule.herokuapp.com"})
+//@CrossOrigin(origins = {"https://sportschedule.herokuapp.com"})
+@CrossOrigin(originPatterns = {"*"})
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;

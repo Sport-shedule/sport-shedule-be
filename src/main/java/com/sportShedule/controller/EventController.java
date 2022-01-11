@@ -10,7 +10,8 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/admin/event")
-@CrossOrigin(origins = {"https://sportschedule.herokuapp.com"})
+//@CrossOrigin(origins = {"https://sportschedule.herokuapp.com"})
+@CrossOrigin(originPatterns = {"*"})
 public class EventController {
 
     @Autowired
