@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/admin/category")
-@CrossOrigin
+@CrossOrigin(origins = {"https://sportschedule.herokuapp.com"})
 public class CategoryController {
 
     @Autowired
