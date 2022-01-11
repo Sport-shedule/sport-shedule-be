@@ -44,12 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .cors()
-            .and()
+            .httpBasic().disable()
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
-            .authorizeRequests().antMatchers(LOGIN_ENDPOINT).permitAll()
+            .authorizeRequests()
+            .antMatchers(LOGIN_ENDPOINT).permitAll()
             .antMatchers(AUTH_WHITELIST).permitAll()
             .antMatchers(ADMIN_ENDPOINT)
             .authenticated()

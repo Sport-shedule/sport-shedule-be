@@ -21,7 +21,7 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-@CrossOrigin
+//@CrossOrigin
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
