@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    private static final String ADMIN_ENDPOINT = "/admin/**";
+  //  private static final String ADMIN_ENDPOINT = "/admin/**";
     private static final String LOGIN_ENDPOINT = "/login";
     private static final String[] AUTH_WHITELIST = {
             "/v2/api-docs",
@@ -26,7 +26,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-ui.html",
             "/webjars/**",
             "/v3/api-docs/**",
-            "/swagger-ui/**"
+            "/swagger-ui/**",
+            "/admin/event/all",
+            "/admin/event/{id}",
+            "/admin/event/byCategoryId/{id}",
+            "/admin/event/byIds",
+            "/admin/category/{id}",
+            "/admin/category/all"
+    };
+
+
+    private static final String[] ADMIN_ENDPOINT = {
+            "/admin/event",
+            "/admin/category"
     };
 
 
