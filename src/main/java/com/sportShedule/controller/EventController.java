@@ -9,53 +9,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/admin/event")
-//@CrossOrigin(origins = {"https://sportschedule.herokuapp.com"})
+@RequestMapping("/event")
 @CrossOrigin(originPatterns = {"*"})
 public class EventController {
 
     @Autowired
     private EventService eventService;
 
-    @PostMapping
-    @ResponseBody
-    @ResponseStatus(code = HttpStatus.CREATED)
-    private Event create(@RequestBody Event event) {
-        return eventService.save(event);
-    }
-
     @GetMapping("/{id}")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Event findById(@PathVariable Long id) {
+    private Event findEventById(@PathVariable Long id) {
         return eventService.findById(id);
     }
 
     @GetMapping("/byCategoryId/{id}")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Collection<Event> findByCategoryId(@PathVariable Long id) {
+    private Collection<Event> findEventByCategoryId(@PathVariable Long id) {
         return eventService.findAllByCategoryId(id);
     }
 
     @GetMapping("/all")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Collection<Event> findAll() {
+    private Collection<Event> findAllEvents() {
         return eventService.findAll();
     }
 
-    @DeleteMapping("/{id}")
-    @ResponseBody
-    @ResponseStatus(code = HttpStatus.OK)
-    private void removeById(@PathVariable Long id){
-        eventService.remove(id);
-    }
 
     @PostMapping("/byIds")
     @ResponseBody
     @ResponseStatus(code=HttpStatus.OK)
-    private Collection<Event> findByIds(@RequestBody Collection<Long> eventIds){
+    private Collection<Event> findEventsByIds(@RequestBody Collection<Long> eventIds){
         return eventService.findAllByIds(eventIds);
     }
 }

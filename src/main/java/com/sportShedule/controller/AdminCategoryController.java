@@ -6,31 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-
-
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/admin/category")
 @CrossOrigin(originPatterns = {"*"})
-public class CategoryController {
+public class AdminCategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/{id}")
+    @PostMapping
     @ResponseBody
-    @ResponseStatus(code = HttpStatus.OK)
-    private Category findById(@PathVariable Long id){
-        return categoryService.findById(id);
+    @ResponseStatus(code= HttpStatus.CREATED)
+    private Category createCategory(@RequestBody Category category){
+        return categoryService.save(category);
     }
 
-    @GetMapping("/all")
+    @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.OK)
-    private Collection<Category> findAll(){
-        return categoryService.findAll();
+    private void removeCategoryById(@PathVariable Long id){
+        categoryService.remove(id);
     }
-
-
-
 }
